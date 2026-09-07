@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "title": "Stübli IKEA Switzerland bedroom starter catalog",
+  "reviewedOn": "2026-09-07",
+  "units": "metres unless explicitly labeled Cm",
+  "coverage": "12 selected product variants; not the full IKEA catalog",
+  "verificationScope": "Product identity and published assembled dimensions, not physical metrology, live stock or 3D asset accuracy.",
+  "products": [
+    {
+      "id": "ikea-ch-09929373",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "099.293.73",
+      "series": "MALM",
+      "name": "High bed frame",
+      "finish": "white",
+      "category": "bed",
+      "nominalSizeLabel": "160x200 cm",
+      "assembledDimensionsM": {
+        "width": 1.76,
+        "depth": 2.09,
+        "height": 1.0
+      },
+      "dimensionMapping": "bed_length_as_depth",
+      "publishedMeasurementsCm": {
+        "mattressWidth": 160,
+        "mattressLength": 200,
+        "headboardHeight": 100,
+        "footboardHeight": 38,
+        "underFurnitureHeight": 21
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/malm-bed-frame-high-white-s09929373/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Bed frame 402.494.71 and SKORVA midbeam 901.245.34. Slatted base, mattress and bedding are separate."
+      ]
+    },
+    {
+      "id": "ikea-ch-29019481",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "290.194.81",
+      "series": "TARVA",
+      "name": "Bed frame with LÖNSET",
+      "finish": "pine/Lönset",
+      "category": "bed",
+      "nominalSizeLabel": "140x200 cm",
+      "assembledDimensionsM": {
+        "width": 1.48,
+        "depth": 2.09,
+        "height": 0.92
+      },
+      "dimensionMapping": "headboard_height_as_maximum_height",
+      "publishedMeasurementsCm": {
+        "mattressWidth": 140,
+        "mattressLength": 200,
+        "headboardHeight": 92,
+        "footboardHeight": 32,
+        "underFurnitureHeight": 20
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/tarva-bed-frame-pine-loenset-s29019481/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Combination includes frame 202.499.43, midbeam 901.245.34 and two LÖNSET bases 702.787.06. Mattress and bedding are separate."
+      ]
+    },
+    {
+      "id": "ikea-ch-80214549",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "802.145.49",
+      "series": "MALM",
+      "name": "Chest of 2 drawers",
+      "finish": "white",
+      "category": "bedside",
+      "nominalSizeLabel": "40x55 cm",
+      "assembledDimensionsM": {
+        "width": 0.4,
+        "depth": 0.48,
+        "height": 0.55
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {
+        "drawerInteriorDepth": 43
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/malm-chest-of-2-drawers-white-80214549/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Drawer interior depth is not drawer travel."
+      ]
+    },
+    {
+      "id": "ikea-ch-50610739",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "506.107.39",
+      "series": "HEMNES",
+      "name": "Bedside table",
+      "finish": "grey-green/light brown stained",
+      "category": "bedside",
+      "nominalSizeLabel": "46x35 cm",
+      "assembledDimensionsM": {
+        "width": 0.46,
+        "depth": 0.35,
+        "height": 0.7
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {
+        "drawerInteriorDepth": 23,
+        "underFurnitureHeight": 25
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/hemnes-bedside-table-grey-green-light-brown-stained-50610739/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Finish is the exact grey-green/light brown stained variant, not white."
+      ]
+    },
+    {
+      "id": "ikea-ch-00441758",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "004.417.58",
+      "series": "KLEPPSTAD",
+      "name": "Wardrobe with 3 doors",
+      "finish": "white",
+      "category": "wardrobe",
+      "nominalSizeLabel": "117x55x176 cm",
+      "assembledDimensionsM": {
+        "width": 1.17,
+        "depth": 0.55,
+        "height": 1.76
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {},
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/kleppstad-wardrobe-with-3-doors-white-00441758/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": true,
+      "notes": [
+        "Three-door wardrobe; hinge offsets, door widths and swing angles not verified."
+      ]
+    },
+    {
+      "id": "ikea-ch-70458203",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "704.582.03",
+      "series": "PAX",
+      "name": "Wardrobe frame",
+      "finish": "white",
+      "category": "wardrobe_frame",
+      "nominalSizeLabel": "100x58x201 cm",
+      "assembledDimensionsM": {
+        "width": 0.998,
+        "depth": 0.58,
+        "height": 2.012
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {
+        "uprightAssemblyMinimumCeiling": 202,
+        "slidingDoorMinimumCeiling": 205
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/pax-wardrobe-frame-white-70458203/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": true,
+      "notes": [
+        "Frame only: doors, hinges and interiors are separate. Use assembled measurements rather than nominal system sizes. Sliding-door ceiling condition applies only if that configuration is added."
+      ]
+    },
+    {
+      "id": "ikea-ch-30213076",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "302.130.76",
+      "series": "MICKE",
+      "name": "Desk",
+      "finish": "white",
+      "category": "desk",
+      "nominalSizeLabel": "73x50 cm",
+      "assembledDimensionsM": {
+        "width": 0.73,
+        "depth": 0.5,
+        "height": 0.75
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {
+        "underFurnitureHeight": 63,
+        "drawerInteriorWidth": 62,
+        "drawerInteriorDepth": 36
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/micke-desk-white-30213076/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Supporting leg can be assembled on either side. Page is marked Now or never."
+      ]
+    },
+    {
+      "id": "ikea-ch-80213074",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "802.130.74",
+      "series": "MICKE",
+      "name": "Desk",
+      "finish": "white",
+      "category": "desk",
+      "nominalSizeLabel": "105x50 cm",
+      "assembledDimensionsM": {
+        "width": 1.05,
+        "depth": 0.5,
+        "height": 0.75
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {},
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/micke-desk-white-80213074/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Storage unit can be assembled on either side. Page is marked Now or never. Add-on unit, if used, requires placement against a wall."
+      ]
+    },
+    {
+      "id": "ikea-ch-70261150",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "702.611.50",
+      "series": "MARKUS",
+      "name": "Office chair",
+      "finish": "Vissle dark grey",
+      "category": "chair",
+      "nominalSizeLabel": "Medium",
+      "assembledDimensionsM": {
+        "width": 0.62,
+        "depth": 0.6,
+        "height": 1.4
+      },
+      "dimensionMapping": "maximum_adjusted_height",
+      "publishedMeasurementsCm": {
+        "minimumHeight": 129,
+        "maximumHeight": 140,
+        "seatWidth": 53,
+        "seatDepth": 47,
+        "minimumSeatHeight": 46,
+        "maximumSeatHeight": 57
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/markus-office-chair-vissle-dark-grey-70261150/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": null,
+      "notes": [
+        "Bounding height uses maximum adjustment; reclining and swept swivel envelope are unverified."
+      ]
+    },
+    {
+      "id": "ikea-ch-20403562",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "204.035.62",
+      "series": "MALM",
+      "name": "Chest of 3 drawers",
+      "finish": "white",
+      "category": "chest",
+      "nominalSizeLabel": "80x78 cm",
+      "assembledDimensionsM": {
+        "width": 0.8,
+        "depth": 0.48,
+        "height": 0.78
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {
+        "drawerInteriorWidth": 72,
+        "drawerInteriorDepth": 43,
+        "drawerPullOut": 27
+      },
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/malm-chest-of-3-drawers-white-20403562/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": 0.27,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": true,
+      "notes": [
+        "Published drawer pull-out is 27 cm; this does not include user standing space."
+      ]
+    },
+    {
+      "id": "ikea-ch-00263850",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "002.638.50",
+      "series": "BILLY",
+      "name": "Bookcase",
+      "finish": "white",
+      "category": "bookcase",
+      "nominalSizeLabel": "80x28x202 cm",
+      "assembledDimensionsM": {
+        "width": 0.8,
+        "depth": 0.28,
+        "height": 2.02
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {},
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/billy-bookcase-white-00263850/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": true,
+      "notes": [
+        "Includes one fixed and four adjustable shelves. Leave room above it for anchoring; exact assembly clearance not supplied in the inspected dimensions."
+      ]
+    },
+    {
+      "id": "ikea-ch-80275887",
+      "brand": "IKEA",
+      "market": "CH",
+      "articleNumber": "802.758.87",
+      "series": "KALLAX",
+      "name": "Shelving unit",
+      "finish": "white",
+      "category": "shelving",
+      "nominalSizeLabel": "77x147 cm",
+      "assembledDimensionsM": {
+        "width": 0.765,
+        "depth": 0.39,
+        "height": 1.465
+      },
+      "dimensionMapping": "assembled_dimensions",
+      "publishedMeasurementsCm": {},
+      "source": {
+        "url": "https://www.ikea.com/ch/en/p/kallax-shelving-unit-white-80275887/",
+        "accessedOn": "2026-09-07",
+        "publisher": "IKEA Switzerland",
+        "sections": [
+          "Product identification",
+          "Measurements and packaging",
+          "Good to know"
+        ],
+        "verification": "checked_against_official_page_content"
+      },
+      "availability": {
+        "status": "not_checked",
+        "scope": "Product listed on the Swiss site; no store stock, delivery or checkout verification."
+      },
+      "geometry": {
+        "status": "not_sourced",
+        "assetPath": null,
+        "visualAccuracy": "unverified",
+        "redistributionRights": "not_established"
+      },
+      "movement": {
+        "drawerTravelM": null,
+        "doorSwingDegrees": null,
+        "sweptEnvelope": "not_verified"
+      },
+      "requiresWallAnchoring": true,
+      "notes": [
+        "Recorded upright. IKEA also permits horizontal placement. Underframe and inserts are separate."
+      ]
+    }
+  ]
+}

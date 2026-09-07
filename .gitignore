@@ -2,3 +2,8 @@
 .env
 .env.*
 !.env.example
+.build/
+dist/
+.swiftpm/
+*.stubli.json
+!examples/*.stubli.json
