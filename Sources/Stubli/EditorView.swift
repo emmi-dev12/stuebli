@@ -32,6 +32,10 @@ struct EditorView: View {
                 Spacer()
                 Picker("View", selection: $store.mode) { Text("Plan").tag("Plan"); Text("3D").tag("3D"); Text("Walk").tag("Walk") }
                     .pickerStyle(.segmented).frame(width: 216)
+                Picker("Light", selection: Binding(get: { store.document.lighting ?? "Daylight" }, set: { value in store.change { $0.lighting = value == "Daylight" ? nil : value } })) {
+                    Label("Day", systemImage: "sun.max").tag("Daylight")
+                    Label("Evening", systemImage: "moon.stars").tag("Evening")
+                }.labelsHidden().frame(width: 118).help("Preview daylight or warm evening light")
                 Button { store.cameraReset += 1 } label: { Image(systemName: "viewfinder") }.help("Reset view").accessibilityLabel("Reset view")
                 Button { store.save() } label: { Label(store.dirty ? "Save changes" : "Saved", systemImage: store.dirty ? "square.and.arrow.down" : "checkmark") }
                     .buttonStyle(.borderedProminent).tint(pine).disabled(!store.dirty)
@@ -51,7 +55,7 @@ struct EditorView: View {
                     ZStack(alignment: .bottomLeading) {
                         if store.mode == "Plan" { PlanView() }
                         else { RoomSceneView(store: store).id("scene") }
-                        Text(store.mode == "Plan" ? "Drag objects · 1 cm snap · north ↑" : store.mode == "Walk" ? "Click view · W/S move · A/D turn · drag to look · R resets" : "Drag empty space to orbit · scroll to zoom · click objects to select")
+                        Text(store.mode == "Plan" ? "Drag objects · 1 cm snap · north ↑" : store.mode == "Walk" ? "W/S move · A/D turn · drag to look · R resets" : "Drag furniture to place · drag empty space to orbit · scroll to zoom")
                             .font(.caption).foregroundStyle(.secondary).padding(9).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 6)).padding(14)
                             .allowsHitTesting(false)
                     }.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -148,7 +152,7 @@ struct LibrarySidebar: View {
                             }
                         }
                         Divider()
-                        Text("These are conservative floor-plan checks. Open drawers, dressing, simultaneous movement and daily routines need further modeling.").font(.caption).foregroundStyle(.secondary)
+                        Text("These conservative checks include furniture you have opened. Dressing and two people moving at once remain manual walkthrough checks.").font(.caption).foregroundStyle(.secondary)
                     }.padding(16)
                 }
             }
@@ -242,6 +246,16 @@ struct ItemInspector: View {
             NumericField(title: "Width", value: $draft.width).disabled(product != nil)
             NumericField(title: "Depth", value: $draft.depth).disabled(product != nil)
             NumericField(title: "Height", value: $draft.height).disabled(product != nil)
+            if original.canOpen {
+                Divider().padding(.vertical, 5)
+                HStack { Text("Open furniture").font(.headline); Spacer(); Text("\(Int((draft.openFraction ?? 0) * 100))%").monospacedDigit().foregroundStyle(.secondary) }
+                Slider(value: Binding(get: { draft.openFraction ?? 0 }, set: { draft.openFraction = $0 }), in: 0...1)
+                HStack {
+                    Button("Closed") { draft.openFraction = 0; store.update(draft) }
+                    Button("Fully open") { draft.openFraction = 1; store.update(draft) }
+                }
+                Text("Clearance uses \(draft.openingBasis) and the full open volume.").font(.caption).foregroundStyle(.secondary)
+            }
             Button("Apply object changes") { store.update(draft) }.buttonStyle(.borderedProminent).tint(pine)
             Button("Rotate 90°") { var copy = original; copy.rotation = (copy.rotation + 90).truncatingRemainder(dividingBy: 360); store.update(copy) }
             if let product {

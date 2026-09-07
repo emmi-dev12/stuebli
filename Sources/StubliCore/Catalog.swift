@@ -53,7 +53,7 @@ public enum Routes {
     public static func toDoor(in document: SceneDocument, person: Item) -> RouteResult {
         let step = 0.1, radius = max(person.width, person.depth) / 2
         let nx = Int(document.room.width / step), nz = Int(document.room.depth / step)
-        let obstacles = document.items.filter { $0.id != person.id }
+        let obstacles = document.items.filter { $0.id != person.id } + document.openingEnvelopes.map(\.volume)
         func free(_ x: Int, _ z: Int) -> Bool {
             let px = Double(x) * step + step / 2, pz = Double(z) * step + step / 2
             guard px >= radius, px <= document.room.width - radius, pz >= radius, pz <= document.room.depth - radius else { return false }
@@ -68,7 +68,7 @@ public enum Routes {
         let sx = Int(person.x / step), sz = Int(person.z / step)
         let tx = Int((document.room.doorX + document.room.doorWidth / 2) / step)
         let tz = Int((radius + step) / step)
-        var result = RouteResult(personID: person.id, personName: person.name, destination: "Door approach", reachable: false, points: [], assumption: "10 cm grid; \(Int(radius * 200)) cm body diameter; other person stationary; doorway assumed open; no timed behaviour.")
+        var result = RouteResult(personID: person.id, personName: person.name, destination: "Door approach", reachable: false, points: [], assumption: "10 cm grid; \(Int(radius * 200)) cm body diameter; other person stationary; doorway assumed open; open furniture included; no timed behaviour.")
         guard document.room.doorWidth >= radius * 2, sx >= 0, sz >= 0, sx < nx, sz < nz, free(sx, sz), free(tx, tz) else { return result }
         let start = sz * nx + sx, end = tz * nx + tx
         var queue = [start], cursor = 0, previous = [start: start]

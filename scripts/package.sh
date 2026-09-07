@@ -16,6 +16,12 @@ if [ -z "$RESOURCE_BUNDLE" ]; then
   exit 1
 fi
 cp -R "$RESOURCE_BUNDLE" "$APP_DIR/Contents/Resources/"
+UI_BUNDLE="$(find "$BIN_DIR" -maxdepth 1 -type d -name '*StubliUI*.bundle' -print -quit)"
+if [ -z "$UI_BUNDLE" ]; then
+  UI_BUNDLE="$(find "$BIN_DIR" -maxdepth 1 -type d -name '*StubliUI*.resources' -print -quit)"
+fi
+if [ -z "$UI_BUNDLE" ]; then echo 'Missing rendering materials' >&2; exit 1; fi
+cp -R "$UI_BUNDLE" "$APP_DIR/Contents/Resources/"
 # SwiftPM locates command-line resources next to the executable too.
 cp -R "$RESOURCE_BUNDLE" "$APP_DIR/Contents/MacOS/"
 cat > "$APP_DIR/Contents/Info.plist" <<'PLIST'
@@ -25,8 +31,8 @@ cat > "$APP_DIR/Contents/Info.plist" <<'PLIST'
 <key>CFBundleName</key><string>Stübli</string>
 <key>CFBundleDisplayName</key><string>Stübli</string>
 <key>CFBundleIdentifier</key><string>dev.emmi.stuebli</string>
-<key>CFBundleVersion</key><string>1</string>
-<key>CFBundleShortVersionString</key><string>0.1.0</string>
+<key>CFBundleVersion</key><string>2</string>
+<key>CFBundleShortVersionString</key><string>0.2.0</string>
 <key>CFBundleExecutable</key><string>StuebliApp</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>LSMinimumSystemVersion</key><string>14.0</string>

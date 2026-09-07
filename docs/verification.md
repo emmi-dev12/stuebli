@@ -40,9 +40,9 @@ The first render exposed a lighting defect with physically based materials; envi
 
 ## Size and limits
 
-The local installed bundle uses approximately 1.7 MB on disk (including app, CLI, catalog and icon). Build caches are separate and can be removed after packaging. No peak-memory or frame-time benchmark is claimed.
+Bundle size is measured after each packaged release; locally cached build files are separate and removable. Version 0.2 adds a compact set of local PBR maps and an HDR environment, so it remains network-independent. No peak-memory or frame-time benchmark is claimed.
 
-This is a working first prototype, with approximate furniture meshes. Photorealistic quality, official 3D assets, dynamic furniture clearances, daily routines, arbitrary room shapes, older-macOS runtime testing and notarized public distribution remain unfinished.
+This is a working prototype with approximate procedural furniture meshes. Version 0.2 adds articulated furniture and conservative dynamic opening clearances. Photorealistic quality, official 3D assets, automated daily routines, arbitrary room shapes, older-macOS runtime testing and notarized public distribution remain unfinished.
 
 ## Hosted CI
 

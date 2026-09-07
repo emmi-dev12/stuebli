@@ -11,7 +11,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "StubliCore", resources: [.copy("Resources/ikea-ch.json")]),
-        .executableTarget(name: "StubliUI", dependencies: ["StubliCore"], path: "Sources/Stubli"),
+        .executableTarget(name: "StubliUI", dependencies: ["StubliCore"], path: "Sources/Stubli", resources: [.copy("Resources/Materials")]),
         .executableTarget(name: "StubliCLI", dependencies: ["StubliCore"]),
         .executableTarget(name: "StubliChecks", dependencies: ["StubliCore"], path: "Tests/StubliCoreTests")
     ]

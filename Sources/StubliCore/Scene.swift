@@ -23,6 +23,7 @@ public struct Item: Codable, Identifiable, Equatable, Sendable {
     public var depth: Double
     public var height: Double
     public var catalogID: String? = nil
+    public var openFraction: Double? = nil
     public var rotation: Double
     public init(id: String = UUID().uuidString.lowercased(), name: String, kind: String, x: Double, z: Double, width: Double, depth: Double, height: Double, rotation: Double = 0) {
         self.id = id; self.name = name; self.kind = kind; self.x = x; self.z = z
@@ -46,6 +47,7 @@ public struct Item: Codable, Identifiable, Equatable, Sendable {
 
 public struct SceneDocument: Codable, Equatable, Sendable {
     public var schemaVersion: Int = 1
+    public var lighting: String? = nil
     public var name: String = "Bedroom study"
     public var room = Room()
     public var items: [Item] = []
@@ -68,12 +70,14 @@ public struct SceneDocument: Codable, Equatable, Sendable {
         return scene
     }
     public func validate() throws {
+        guard ["Daylight", "Evening"].contains(lighting ?? "Daylight") else { throw SceneError.invalid("Lighting must be Daylight or Evening.") }
         guard schemaVersion == 1 else { throw SceneError.invalid("Unsupported schema version.") }
         guard !name.isEmpty, name.count <= 200, items.count <= 500 else { throw SceneError.invalid("Use a room name and at most 500 objects.") }
         guard [room.width, room.depth, room.height].allSatisfy({ $0.isFinite && $0 >= 0.5 && $0 <= 50 }), room.doorWidth.isFinite, room.doorX.isFinite, room.doorWidth > 0, room.doorX >= 0, room.doorX + room.doorWidth <= room.width else { throw SceneError.invalid("Room sizes must be 0.5–50 m; the doorway must fit the south wall.") }
         guard [room.windowX, room.windowWidth, room.windowSill, room.windowHeight].allSatisfy({ $0.isFinite && $0 >= 0 }), room.windowWidth > 0, room.windowHeight > 0, room.windowX + room.windowWidth <= room.width, room.windowSill + room.windowHeight <= room.height else { throw SceneError.invalid("The window must fit the north wall.") }
         guard Set(items.map(\.id)).count == items.count else { throw SceneError.invalid("Object IDs must be unique.") }
         for item in items {
+            guard (item.openFraction ?? 0).isFinite, (0...1).contains(item.openFraction ?? 0) else { throw SceneError.invalid("Opening must be between zero and one.") }
             guard !item.id.isEmpty, !item.name.isEmpty, item.name.count <= 200,
                   [item.x, item.z, item.rotation].allSatisfy({ $0.isFinite && abs($0) <= 10000 }),
                   [item.width, item.depth, item.height].allSatisfy({ $0.isFinite && $0 > 0 && $0 <= 50 }),
@@ -104,6 +108,15 @@ public struct SceneDocument: Codable, Equatable, Sendable {
         for i in items.indices {
             for j in items.indices where j > i {
                 if overlaps(items[i], items[j]) { results.append("\(items[i].name) overlaps \(items[j].name) in the floor plan.") }
+            }
+        }
+        for envelope in openingEnvelopes {
+            let f = envelope.volume.footprint, v = envelope.volume
+            if v.x - f.width / 2 < 0 || v.x + f.width / 2 > room.width || v.z - f.depth / 2 < 0 || v.z + f.depth / 2 > room.depth {
+                results.append("\(envelope.ownerName): open furniture may hit a wall (\(envelope.basis)).")
+            }
+            for other in items where other.id != envelope.ownerID {
+                if overlaps(v, other) { results.append("\(envelope.ownerName): opening may hit \(other.name) (\(envelope.basis)).") }
             }
         }
         return results

@@ -45,6 +45,17 @@ struct PlanView: View {
                         context.stroke(path, with: .color(index % 2 == 0 ? pine : .orange), style: StrokeStyle(lineWidth: 3, lineCap: .round, dash: [7,5]))
                     }
                 }.allowsHitTesting(false)
+                ForEach(store.document.openingEnvelopes, id: \.volume.id) { opening in
+                    let volume = opening.volume
+                    RoundedRectangle(cornerRadius: 3)
+                        .fill(Color.orange.opacity(0.12))
+                        .overlay { RoundedRectangle(cornerRadius: 3).stroke(Color.orange.opacity(0.8), style: StrokeStyle(lineWidth: 1.5, dash: [5, 4])) }
+                        .frame(width: max(volume.width * scale, 5), height: max(volume.depth * scale, 5))
+                        .rotationEffect(.degrees(volume.rotation))
+                        .position(x: ox + volume.x * scale, y: oy + depth - volume.z * scale)
+                        .allowsHitTesting(false)
+                        .accessibilityHidden(true)
+                }
                 ForEach(store.document.items) { item in
                     let selected = store.selected == item.id
                     let w = item.width * scale, d = item.depth * scale

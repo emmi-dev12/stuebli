@@ -67,6 +67,21 @@ final class SceneTests {
         doc.items.append(Item(name: "Barrier",kind: "wardrobe",x: doc.room.width / 2,z: 1.5,width: doc.room.width,depth: 0.6,height: 2))
         XCTAssertFalse(Routes.toDoor(in: doc,person: person).reachable)
     }
+    func testOpenFurnitureClearanceAndCompatibility() throws {
+        let malm = try XCTUnwrap(Catalog.products.first { $0.articleNumber == "204.035.62" })
+        var chest = malm.makeItem(); chest.x = 2; chest.z = 2; chest.openFraction = 1
+        XCTAssertEqual(chest.openingDistance, 0.27, accuracy: 0.000001)
+        var doc = SceneDocument(); doc.items = [chest]
+        let opening = try XCTUnwrap(doc.openingEnvelopes.first)
+        XCTAssertEqual(opening.volume.depth, 0.27, accuracy: 0.000001)
+        XCTAssertTrue(opening.basis.contains("published"))
+        chest.openFraction = 1.1; doc.items = [chest]; XCTAssertThrowsError(try doc.validate())
+
+        let legacy = "{\"schemaVersion\":1,\"name\":\"Old room\",\"room\":{\"width\":4.8,\"depth\":4.2,\"height\":2.5,\"doorX\":0.7,\"doorWidth\":0.85,\"windowX\":2.7,\"windowWidth\":1.4,\"windowSill\":0.9,\"windowHeight\":1.2},\"items\":[]}"
+        let decoded = try JSONDecoder().decode(SceneDocument.self, from: Data(legacy.utf8))
+        XCTAssertEqual(decoded.lighting, nil)
+        XCTAssertNoThrow(try decoded.validate())
+    }
 }
 
 // Dependency-free checks also run with Apple's Command Line Tools (no Xcode/XCTest).
@@ -90,7 +105,8 @@ func XCTUnwrap<T>(_ value: T?) throws -> T { guard let value else { throw SceneE
             ("rotated collision + touching", tests.testRotatedFootprintsAndTouching),
             ("invalid geometry + door warnings", tests.testInvalidGeometryAndDoorWarning),
             ("stale writes + atomic validation", tests.testStaleWritesCannotOverwriteAndInvalidWritesAreAtomic),
-            ("reachable + blocked route", tests.testRouteFoundThenBlockedByBarrier)
+            ("reachable + blocked route", tests.testRouteFoundThenBlockedByBarrier),
+            ("open furniture + old files", tests.testOpenFurnitureClearanceAndCompatibility)
         ]
         for (name,test) in cases { try test(); print("PASS \(name)") }
         print("All \(cases.count) core checks passed.")

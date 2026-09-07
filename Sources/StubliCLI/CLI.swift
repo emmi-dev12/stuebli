@@ -2,14 +2,14 @@ import Foundation
 import StubliCore
 
 let help = """
-Stübli 0.1 — local agent interface (metres)
+Stübli 0.2 — local agent interface (metres)
 
 stubli catalog [QUERY]                     Search verified Swiss product records
 stubli sample FILE                         Create a new example scene
 stubli inspect FILE [OBJECT_ID]            Read scene or one object as JSON
 stubli check FILE                          Check footprints, door approach, ceiling
 stubli routes FILE                         Check each person's path to the door
-stubli set FILE OBJECT_ID FIELD VALUE      x,z,width,depth,height,rotation,name
+stubli set FILE OBJECT_ID FIELD VALUE      x,z,width,depth,height,rotation,name,openFraction
 stubli add FILE KIND_OR_CATALOG_ID         Add a catalog product or generic person
 stubli remove FILE OBJECT_ID               Remove an object
 stubli custom FILE OBJECT_ID               Detach catalog identity before resizing
@@ -40,6 +40,7 @@ func edit(_ field: String, value: String, item: inout Item) throws {
     case "depth": item.depth = n
     case "height": item.height = n
     case "rotation": item.rotation = n
+    case "openFraction": item.openFraction = n
     default: throw SceneError.invalid("Unknown object field: \(field).")
     }
 }
@@ -83,7 +84,8 @@ func run() throws {
     case "patch":
         guard args.count == 3,
               let patch = try JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: args[2]))) as? [String:Any],
-              Set(patch.keys).isSubset(of: ["updates","room","name"]) else { throw SceneError.invalid("Expected a patch object with updates, room and/or name.") }
+              Set(patch.keys).isSubset(of: ["updates","room","name","lighting"]) else { throw SceneError.invalid("Expected a patch object with updates, room and/or name.") }
+        if let raw = patch["lighting"] { guard let value = raw as? String else { throw SceneError.invalid("Lighting must be text.") }; scene.lighting = value }
         if let name = patch["name"] { guard let name = name as? String else { throw SceneError.invalid("Name must be text.") }; scene.name = name }
         if let raw = patch["updates"] {
             guard let updates = raw as? [[String:Any]] else { throw SceneError.invalid("Updates must be an array of objects.") }

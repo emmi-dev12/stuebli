@@ -25,3 +25,11 @@ The local Command Line Tools SDK exposed a SwiftUI macro without its plugin and 
 ### What remains uncertain
 
 Photorealistic rendering, asset licensing, more detailed models, articulated furniture, complete daily routines, and public distribution all need further work. This first prototype is a foundation to use and evaluate, not a claim to have replaced Blender or matched Unreal Engine.
+
+## 2026-09-07 — Making the room feel inhabited
+
+The second pass replaces generic blocks with product-aware procedural furniture: a made bed with soft geometry, recognizable MICKE desks and MARKUS chair, open shelving, drawer units, and hinged wardrobe fronts. A small set of verified CC0 Poly Haven maps adds real wood response, cloth surface detail, and local HDR lighting without a network request.
+
+Beauty also has to improve the decision. Supported furniture now opens from the inspector. The plan draws its working clearance, route checks treat that space as occupied, and the app says whether drawer travel came from a published dimension or an explicit estimate. Daylight and evening are preview moods rather than a sunlight claim.
+
+Direct 3D dragging keeps the richer scene useful. It updates item transforms without rebuilding the furniture geometry on every centimetre of movement, preserving the lightweight goal.
